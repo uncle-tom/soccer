@@ -1,0 +1,45 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label "Заголовок" %><br>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label "Ссылка" %><br>
+    <%= form.text_field :url, class: "add_post_link form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label "Ваш комментарий" %><br>
+    <%= form.text_area :content, rows: 5, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Embed video" %><br>
+    <%= form.text_field :code, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :domain, class: "add_post_domain" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Отправить", class: "btn btn-primary" %>
+  </div>
+<% end %>

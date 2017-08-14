@@ -1,0 +1,46 @@
+<% set_meta_tags title: 'Парсим' %>
+
+<h5>UA-Football</h5>
+<% @ua_football.first(15).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>Football.ua</h5>
+<% @football_ua.first(15).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>Football 24</h5>
+<% @football24.first(15).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>Eurosport</h5>
+<% @eurosport.first(8).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>Dynamo.kiev.ua</h5>
+<% @dynamo.first(12).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>Terrikon</h5>
+<% @terrikon.first(15).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>FootBoom</h5>
+<% @footboom.first(12).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>Zbirna</h5>
+<% @zbirna.first(15).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>
+
+<h5>Sportarena</h5>
+<% @sportarena.first(15).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>

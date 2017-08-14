@@ -1,0 +1,56 @@
+<!-- Modal Sign_In_Up_form -->
+<div class="modal fade bd-example-modal-lg" id="modal_sign_in_up_form" tabindex="-1" role="dialog" aria-labelledby="modal_sign_in_up_form" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Войти на сайт</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6" style="border-right: 1px solid #777">
+            <h5>Вход</h5>
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <div class="field">
+                <%= f.label 'Email:' %><br />
+                <%= f.email_field :email, :required => true %>
+              </div>
+              <div class="field">
+                <%= f.label 'Пароль:' %><br />
+                <%= f.password_field :password, autocomplete: "off", :required => true %>
+              </div>
+              <br>
+              <%= f.submit "Войти", class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <h5>Регистрация</h5>
+            <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+              <div class="field">
+                <%= f.label 'Email:' %><br />
+                <%= f.email_field :email, :required => true %>
+              </div>
+
+              <div class="field">
+                <%= f.label 'Пароль:' %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off", :required => true %>
+              </div>
+
+              <div class="field">
+                <%= f.label 'Подтвердите пароль:' %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off", :required => true %>
+              </div>
+              <br>
+              <%= f.submit "Зарегистрироваться", class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

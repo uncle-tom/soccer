@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= display_meta_tags %>
+  </head>
+
+  <body>
+    <!-- header -->
+    <%= render 'layouts/header' %>
+  	<div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <%= yield %>
+        </div>
+        <div class="col-md-3">
+          <h5><p>Правила</p></h5>
+          <p>1. Любая ссылка или статья на футбольную тему имеет право быть добавленой.</p>
+          <p>2. Это открытое комьюнити - любой желающий может зарегистрироваться и добавить новость.</p>
+          <p>3. Одна новость - одна ссылка, епт.</p>
+          <p>4. Пить пиво в пятницу можно с самого утра.</p>
+          <% if current_user %>
+            <%= link_to 'Добавить новость', new_post_path, class: 'btn btn-primary' %>
+          <% else %>
+            <div class="btn btn-primary pointer" data-toggle="modal" data-target=".bd-example-modal-lg">Добавить новость</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/sign_in_up_form' %>
+  </body>
+</html>
