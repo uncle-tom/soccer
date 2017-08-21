@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where(created_at:  (Time.now - 24.hours)..Time.now)
     @comments = Comment.joins(:posts)
   end
 
@@ -251,6 +251,27 @@ class PostsController < ApplicationController
         link: link,
       )
     end
+
+    url_tribuna = 'https://ua.tribuna.com/news/football/'
+    html_tribuna = open(url_tribuna)
+
+    doc_tribuna = Nokogiri::HTML(html_tribuna)
+    @tribuna = []
+    doc_tribuna.css('.short-news p').each do |showing|
+      title_el = showing.at_css('a')
+      if title_el = showing.at_css('a')
+        title = title_el.text.strip
+      end
+      if showing.at_css('a')
+        link = showing.at_css('a').attr('href')
+      else 
+        link = "none"
+      end
+      @tribuna.push(
+        title: title,
+        link: 'https://ua.tribuna.com'+link,
+      )
+    end
   end
 
 
@@ -262,6 +283,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:url, :title, :content, :user_id, :code, :rating, :domain)
+      params.require(:post).permit(:url, :title, :content, :user_id, :code, :rating, :domain, {photos: []})
     end
 end

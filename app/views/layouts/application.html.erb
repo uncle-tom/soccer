@@ -17,18 +17,19 @@
         </div>
         <div class="col-md-3">
           <h5><p>Правила</p></h5>
-          <p>1. Любая ссылка или статья на футбольную тему имеет право быть добавленой.</p>
-          <p>2. Это открытое комьюнити - любой желающий может зарегистрироваться и добавить новость.</p>
-          <p>3. Одна новость - одна ссылка, епт.</p>
-          <p>4. Пить пиво в пятницу можно с самого утра.</p>
+          <p>1. Будь-яке посилання або стаття на футбольну тему має право бути доданими.</p>
+          <p>2. Це відкрите ком'юніті - будь-який бажаючий може зареєструватися і додати новину.</p>
+          <p>3. Одна новина - одне посилання.</p>
+          <p>4. Пити пиво в п'ятницю можна з самого ранку.</p>
           <% if current_user %>
-            <%= link_to 'Добавить новость', new_post_path, class: 'btn btn-primary' %>
+            <%= link_to 'Добавити новину', new_post_path, class: 'btn btn-primary' %>
           <% else %>
-            <div class="btn btn-primary pointer" data-toggle="modal" data-target=".bd-example-modal-lg">Добавить новость</div>
+            <div class="btn btn-primary pointer" data-toggle="modal" data-target=".bd-example-modal-lg">Добавити новину</div>
           <% end %>
         </div>
       </div>
     </div>
+    <%= render 'layouts/footer' %>
     <%= render 'layouts/sign_in_up_form' %>
   </body>
 </html>

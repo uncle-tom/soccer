@@ -2,9 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@media screen and (max-width: 992px) {
+	.post_light_gallery img {
+		width: 100% !important;
+	}
+	.code {
+		width: 100% !important;
+	}
+}
+
 .post_card {
 	display: table;
 	margin-bottom: 25px;
+	width: 100%;
+  padding: 10px 20px 10px 0px;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .table_cell {
@@ -21,6 +34,18 @@
 
 .post_info {
 	font-size: 12px;
+}
+
+.code {
+	width: 540px;
+}
+
+.post_light_gallery li {
+	list-style-type: none;
+}
+
+.post_light_gallery img {
+	width: 500px;
 }
 
 .add_comment_to_post {

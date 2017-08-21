@@ -2,13 +2,20 @@
 
 <h5><p><%= @post.title %> | <%= @post.domain %></p></h5>
 <p><%= @post.content %></p>
-<p><%= @post.try(:code).try(:html_safe) %></p>
+<div class="code"><%= @post.try(:code).try(:html_safe) %></div>
+<ul class="post_light_gallery">
+  <% @post.photos.each do |i| %>  
+    <li class="post_photos" data-src="<%= i %>">
+      <img src="<%= i %>" />
+    </li>
+  <% end %> 
+</ul>
 
 <div>
 <% if current_user %>
   <% if @post.author.try(:id) == current_user.id || current_user.role == "moderator" %>
-		<%= link_to 'Редактировать', edit_post_path(@post) %> |
-		<%= link_to "Удалить", @post, method: :delete, data: { confirm: 'Вы уверены?' } %>
+		<%= link_to 'Редагувати', edit_post_path(@post) %> |
+		<%= link_to "Видалити", @post, method: :delete, data: { confirm: 'Ви впевнені?' } %>
 	<% end %>
 <% end %>
 </div>
@@ -17,7 +24,7 @@
 	<% if current_user %>
 		<%= form_for([@post, Comment.new]) do |f| %>
 			<div>
-		    <%= f.label "Ваш комментарий" %><br>
+		    <%= f.label "Ваш коментар" %><br>
 		    <%= f.text_area :message, rows: 5 %>
 		  </div>
 		  <div>
@@ -27,21 +34,21 @@
 		    <%= f.hidden_field :post_id, value: @post.id %>
 		  </div>
 		  <div class="actions">
-		    <%= f.submit "Отправить", class: "btn btn-primary" %>
+		    <%= f.submit "Відправити", class: "btn btn-primary" %>
 		  </div>
 		<% end %>
 	<% else %>
-		<div class="btn btn-primary pointer" data-toggle="modal" data-target=".bd-example-modal-lg">Добавить комментарий</div>
+		<div class="btn btn-primary pointer" data-toggle="modal" data-target=".bd-example-modal-lg">Додати коментар</div>
 	<% end %>
 </div>
 
 <div class="comments_post">
-	<p>Комментариев: <%= @comments.size %></p>
+	<p>Коментарів: <%= @comments.size %></p>
 	<% @comments.where('parent_id is NULL').order('created_at DESC').each do |comment| %>
 		<div class="comment">
 			<div class="comment_message"><%= comment.message %></div>
 			<div class="comment_info">Автор: <%= link_to comment.author_comment.try(:name), user_path(comment.author_comment.try(:id)) %>, <%= time_ago_in_words comment.created_at %></div>
-			<div class="comment_answer_button pointer" data-id="<%= comment.id %>">Ответить</div>
+			<div class="comment_answer_button pointer" data-id="<%= comment.id %>">Відповісти</div>
 			<div class="you_answer_hide_show you_answer_<%= comment.id %>"  data-reportid="<%= comment.id %>">
 				<% if current_user %>
 					<%= form_for([@post, Comment.new]) do |fanswer| %>
@@ -62,7 +69,7 @@
 					  </div>
 					<% end %>
 				<% else %>
-					<div class="btn btn-primary">Войти на сайт</div>
+					<div class="btn btn-primary">Ввійти на сайт</div>
 				<% end %>
 			</div>
 			<div class="comment_answer">

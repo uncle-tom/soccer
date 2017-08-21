@@ -44,3 +44,8 @@
 <% @sportarena.first(15).each do |s| %>
   <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
 <% end %>
+
+<h5>Tribuna</h5>
+<% @tribuna.first(15).each do |s| %>
+  <p class="news_parser"><%= link_to s[:title], s[:link], target: '_blank' %> <span class="add_news_parser add_news_parser_click_<%= s[:link] %>" data-title="<%= s[:title] %>" data-link="<%= s[:link] %>">Добавить</span></p>
+<% end %>

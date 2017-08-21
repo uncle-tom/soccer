@@ -62,20 +62,20 @@ ru:
   datetime:
     distance_in_words:
       about_x_hours:
-        few: около %{count} часов назад
-        many: около %{count} часов назад
-        one: около %{count} часа назад
-        other: около %{count} часов назад
+        few: близько %{count} годин тому
+        many: близько %{count} годин тому
+        one: близько %{count} години тому
+        other: близько %{count} годин тому
       about_x_months:
-        few: около %{count} месяцев назад
-        many: около %{count} месяцев назад
-        one: около %{count} месяца назад
-        other: около %{count} месяца назад
+        few: близько %{count} месяцев назад
+        many: близько %{count} месяцев назад
+        one: близько %{count} месяца назад
+        other: близько %{count} месяца назад
       about_x_years:
-        few: около %{count} лет назад
-        many: около %{count} лет назад
-        one: около %{count} года назад
-        other: около %{count} лет назад
+        few: близько %{count} лет назад
+        many: близько %{count} лет назад
+        one: близько %{count} года назад
+        other: близько %{count} лет назад
       almost_x_years:
         one: почти 1 год
         few: почти %{count} года назад
@@ -83,10 +83,10 @@ ru:
         other: почти %{count} лет назад
       half_a_minute: меньше минуты
       less_than_x_minutes:
-        few: меньше %{count} мин. назад
-        many: меньше %{count} мин. назад
-        one: меньше %{count} мин. назад
-        other: меньше %{count} мин. назад
+        few: меньше %{count} хв. назад
+        many: меньше %{count} хв. назад
+        one: меньше %{count} хв. назад
+        other: меньше %{count} хв. назад
       less_than_x_seconds:
         few: меньше %{count} секунд
         many: меньше %{count} секунд
@@ -103,10 +103,10 @@ ru:
         one: "%{count} день"
         other: "%{count} дня"
       x_minutes:
-        few: "%{count} мин. назад"
-        many: "%{count} мин. назад"
-        one: "%{count} мин. назад"
-        other: "%{count} мин. назад"
+        few: "%{count} хв. назад"
+        many: "%{count} хв. назад"
+        one: "%{count} хв. назад"
+        other: "%{count} хв. назад"
       x_months:
         few: "%{count} месяца"
         many: "%{count} месяцев"

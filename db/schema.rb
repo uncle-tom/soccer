@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730070445) do
+ActiveRecord::Schema.define(version: 20170814094907) do
 
   create_table "comments", force: :cascade do |t|
     t.string "message"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170730070445) do
     t.text "code"
     t.integer "rating", default: 0
     t.string "domain", default: "messiwho"
+    t.string "photos"
   end
 
   create_table "users", force: :cascade do |t|

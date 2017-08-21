@@ -1,8 +1,8 @@
-<% set_meta_tags title: 'Профиль: '+@user.try(:name) %>
+<% set_meta_tags title: 'Профіль: '+@user.try(:name) %>
 <h4><%= @user.try(:name) %></h4>
 <% if user_signed_in? %>
 	<% if @user.id == current_user.id %>
-		<%= link_to 'Редактировать', edit_user_path(current_user), class: "btn btn-primary" %>
+		<%= link_to 'Редагувати', edit_user_path(current_user), class: "btn btn-primary" %>
 	<% else %>
 		<div></div>
 	<% end %>
