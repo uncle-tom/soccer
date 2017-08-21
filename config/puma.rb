@@ -55,3 +55,6 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 bind 'unix:///var/www/soccer/tmp/sockets/puma.sock'
+pidfile '/var/www/soccer/tmp/pids/puma.pid'
+state_path '/var/www/soccer/tmp/pids/puma.state'
+daemonize
