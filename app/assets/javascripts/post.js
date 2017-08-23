@@ -7,13 +7,14 @@ $(document).on('turbolinks:load',function(){
 
 	//Rating Up
 	$('.rating_up').on('click', function(){
+    console.log('click')
 		post_click_id = $(this).data("post-id");
 		post_click_rating = $(this).data("post-rating");
 		console.log('post_click_rating', post_click_rating)
 		post_rating = post_click_rating + 1;
 		$.ajax({
       type: "PUT", 
-      url: 'posts/'+post_click_id,
+      url: '/posts/'+post_click_id,
       data: {
         post: { rating: post_rating}
       },
@@ -29,7 +30,7 @@ $(document).on('turbolinks:load',function(){
 		post_rating = post_click_rating - 1;
 		$.ajax({
       type: "PUT", 
-      url: 'posts/'+post_click_id,
+      url: '/posts/'+post_click_id,
       data: {
         post: { rating: post_rating}
       },

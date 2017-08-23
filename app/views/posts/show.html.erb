@@ -1,6 +1,14 @@
 <% set_meta_tags title: @post.title %>
 
-<h5><p><%= @post.title %> | <%= @post.domain %></p></h5>
+<div style="display:table">
+	<div class="table_cell">
+	  <div class="rating_up" data-post-id="<%= @post.id %>" data-post-rating="<%= @post.rating %>"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></div>
+	  <div class="rating_integer_<%= @post.id %>"><%= @post.rating %></div>
+	  <div class="rating_down" data-post-id="<%= @post.id %>" data-post-rating="<%= @post.rating %>"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></div>
+	</div>
+	<h5><%= @post.title %> | <%= @post.domain %></h5>
+	<div class="post_info">Додав: <%= link_to @post.author.try(:name), user_path(@post.author.try(:id)) %>, <%= time_ago_in_words @post.created_at %></div>
+</div>
 <p><%= @post.content %></p>
 <div class="code"><%= @post.try(:code).try(:html_safe) %></div>
 <ul class="post_light_gallery">
