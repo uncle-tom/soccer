@@ -120,7 +120,9 @@ class PostsController < ApplicationController
     @football24 = []
     doc_football24.css('#news-list-module li').each do |showing|
       title_el = showing.at_css('a .title')
-      title = title_el.text.strip
+      if title_el = showing.at_css('a .title')
+        title = title_el.text.strip
+      end
       if showing.at_css('a')
         link = showing.at_css('a').attr('href')
       end
